@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "fastify": "^4.9.2",
+    "memory-cache": "^0.2.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "redis": "^4.4.0"
+  },
+  "imports": {
+    "#config.js": "./config.js",
+    "#lib/*": "./lib/*",
+    "#src/*": "./src/*"
+  },
+  "devDependencies": {
+    "@types/memory-cache": "^0.2.2"
+  }
+}

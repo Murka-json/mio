@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "checkJs": true,
+        "baseUrl": ".",
+        "rootDir": ".",
+        "importHelpers": true,
+        "moduleResolution": "Node",
+        "module": "ES2015",
+        "paths": {
+            "#lib/*": ["lib/*"],
+            "#config.js": ["config.js"],
+            "#src/*": ["src/*"]
+        }
+    }
+}
