@@ -4,7 +4,7 @@ const utils = require('#lib/utils.js')
 
 module.exports = async() => {
     fastify.post("/register", (req, reply) => {
-
+        console.log(req.body)
         if(!req.body || !req.body.email || !req.body.password || !req.body.name) {
             return reply.send({
                 code: 300,

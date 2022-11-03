@@ -21,7 +21,7 @@ module.exports = async (body, reply) => {
         await postgresql.request(`INSERT INTO stats(read) VALUES (0) RETURNING *`)
 
         const result = Object.assign(user, security)
-        const cacheToken = redis.set(`user:${token}`, JSON.stringify(result))
+        const cacheToken = await redis.set(`user:${token}`, JSON.stringify(result))
 
         reply.send({
             code: 200,

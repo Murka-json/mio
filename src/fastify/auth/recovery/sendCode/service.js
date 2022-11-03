@@ -21,5 +21,5 @@ module.exports = async(body, reply) => {
     console.log(code)
     utils.send_email(body.email, code)
     redis.set(`reset:${code}`, JSON.stringify(body.email))
-    redis.expire(`reset:${code}`, 500000)
+    redis.expire(`reset:${code}`, 500)
 }

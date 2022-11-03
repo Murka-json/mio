@@ -24,6 +24,6 @@ module.exports = async (id, reply) => {
             data: r
         })
         redis.set(`cache:profile:${id}`, JSON.stringify(r))
-        redis.expire(`cache:profile:${id}`, 30000)
+        redis.expire(`cache:profile:${id}`, 20)
     })
 }

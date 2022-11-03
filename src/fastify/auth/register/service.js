@@ -21,7 +21,7 @@ module.exports = (body, reply) => {
         console.log(code)
         
         redis.set(`verification:${code}`, JSON.stringify(body))
-        redis.expire(`verification:${code}`, 300000)
+        redis.expire(`verification:${code}`, 300)
         utils.send_email(body.email, code)
     })
 
