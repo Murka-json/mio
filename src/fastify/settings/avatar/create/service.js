@@ -6,11 +6,11 @@ const path = require('path')
 const fs = require('fs')
 
 
-module.exports = (req, reply) => {
+module.exports = (req, reply, imageName) => {
     console.log(req.file)
     redis.get(`user:${req.headers.token}`).then(async r => {
         r = JSON.parse(r)
-        const urlImage = path.resolve(`../static/${req.file.filename}.jpg`)
+        const urlImage = path.resolve(`../static/${imageName}.jpg`)
 
         if(!r) {
             fs.unlink(urlImage, (err) => console.log(err))
@@ -25,6 +25,6 @@ module.exports = (req, reply) => {
             data: `Аватарка успешно загружена`
         })
 
-        postgresql.request(`UPDATE users SET avatar = $1 WHERE id = ${r.id}`, [ `https://mio-app.su/static/${req.file.filename}.jpg` ])
+        postgresql.request(`UPDATE users SET avatar = $1 WHERE id = ${r.id}`, [ `https://mio-app.su/static/${imageName}.jpg` ])
     })
 }
