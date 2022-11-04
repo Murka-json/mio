@@ -1,6 +1,6 @@
 // @ts-nocheck
 module.exports = {
-    port: 3020,
+    port: 3010,
 
     // Database
     postgresql: {

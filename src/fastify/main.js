@@ -4,6 +4,7 @@ module.exports.listen = async () => {
     require('./auth/recovery/getCode/controller')()
     require('./auth/verification/controller')()
     require('./settings/password/controller')()
+    require('./settings/avatar/controller')()
     require('./settings/status/controller')()
     require('./settings/name/controller')()
     require('./profile/other/controller')()

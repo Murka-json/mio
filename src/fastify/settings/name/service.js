@@ -1,4 +1,5 @@
 const postgresql = require('#lib/database/postgresql.js')
+const redis = require('#lib/database/redis.js')
 
 module.exports = async (body, reply) => {
 

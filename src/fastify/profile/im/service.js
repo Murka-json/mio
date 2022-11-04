@@ -5,9 +5,7 @@ const redis = require('#lib/database/redis.js')
 
 
 module.exports = async (body, reply) => {
-    await redis.get(`user:${body.token}`).then(async (r) => {
-        r = JSON.parse(r)
-
+    await redis.get(`user:${body.token}`).then(async r => {
         if (!r) {
             return reply.send({
                 code: 304,
@@ -15,22 +13,18 @@ module.exports = async (body, reply) => {
             })
         }
 
-        const cacheUser = await redis.get(`get_account:${body.token}`)
-
-        if(cacheUser) {
-            return reply.send({
-                code: 200,
-                data: JSON.parse(cacheUser)
-            }) 
-        }
-
         const [user] = await postgresql.request(`SELECT * FROM users, security, stats WHERE users.name = '${r.name}' AND users.id = stats.id AND users.id = security.id`)
         
+        if(!user) {
+            return reply.send({
+                code: 304,
+                data: `Ошибка`
+            })
+        }
+
         reply.send({
             code: 200,
             data: user
         })
-        redis.set(`get_account:${body.token}`, JSON.stringify(user))
-        redis.expire(`get_account:${body.token}`, 15)
     })
 }
