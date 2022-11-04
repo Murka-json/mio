@@ -346,6 +346,13 @@
   "resolved" "https://registry.npmjs.org/detect-libc/-/detect-libc-2.0.1.tgz"
   "version" "2.0.1"
 
+"dom-js@*":
+  "integrity" "sha512-RUgHZsozT+w9XlznVysC5uzbRufcjkqGFmRiOKbnUZzbUSBgGRoP3S2K1i1papT5XXMgDK1PuoxrsFBzP49/fA=="
+  "resolved" "https://registry.npmjs.org/dom-js/-/dom-js-0.0.9.tgz"
+  "version" "0.0.9"
+  dependencies:
+    "sax" ">=0.1.5"
+
 "ee-first@1.1.1":
   "integrity" "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
   "resolved" "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
@@ -1105,6 +1112,11 @@
   "resolved" "https://registry.npmjs.org/safe-stable-stringify/-/safe-stable-stringify-2.4.1.tgz"
   "version" "2.4.1"
 
+"sax@>=0.1.5":
+  "integrity" "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw=="
+  "resolved" "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
+  "version" "1.2.4"
+
 "secure-json-parse@^2.4.0", "secure-json-parse@^2.5.0":
   "integrity" "sha512-ZQruFgZnIWH+WyO9t5rWt4ZEGqCKPwhiw+YbzTwpmT9elgLrLcfuyUiSnwwjUiVy9r4VM3urtbNF1xmEh9IL2w=="
   "resolved" "https://registry.npmjs.org/secure-json-parse/-/secure-json-parse-2.5.0.tgz"
@@ -1318,3 +1330,10 @@
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
+
+"yandex-disk@^0.0.8":
+  "integrity" "sha512-daA/LC+Z5F5rIWMmJ2sCM9UjL362lW1O4iA9V8kEx2tpWHIIY3S7TuzCOxh3zDc8qBJFVn5c211eNSP0Pm6wMg=="
+  "resolved" "https://registry.npmjs.org/yandex-disk/-/yandex-disk-0.0.8.tgz"
+  "version" "0.0.8"
+  dependencies:
+    "dom-js" "*"

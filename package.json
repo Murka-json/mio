@@ -12,7 +12,8 @@
     "memory-cache": "^0.2.0",
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
-    "redis": "^4.4.0"
+    "redis": "^4.4.0",
+    "yandex-disk": "^0.0.8"
   },
   "imports": {
     "#config.js": "./config.js",
