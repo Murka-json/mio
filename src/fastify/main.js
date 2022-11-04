@@ -1,10 +1,11 @@
 module.exports.listen = async () => {
     require('./auth/recovery/resetPassword/controller')()
+    require('./settings/avatar/create/controller')()
     require('./auth/recovery/sendCode/controller')()
+    require('./settings/avatar/delete/controller')()
     require('./auth/recovery/getCode/controller')()
     require('./auth/verification/controller')()
     require('./settings/password/controller')()
-    require('./settings/avatar/controller')()
     require('./settings/status/controller')()
     require('./settings/name/controller')()
     require('./profile/other/controller')()

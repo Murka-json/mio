@@ -15,7 +15,7 @@ module.exports = async (body, reply) => {
         })
     }
 
-    const users = await postgresql.request(`SELECT * FROM users WHERE name LIKE '%${body.query}%' LIMIT ${limit} OFFSET ${offset}`)
+    const users = await postgresql.request(`SELECT * FROM users WHERE name LIKE '%${body.query}%' LIMIT $1 OFFSET $2`, [limit, offset])
 
     if(users.length == 0) {
         return reply.send({

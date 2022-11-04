@@ -15,7 +15,7 @@ module.exports = async (body, reply) => {
         })
     }
 
-    const catalog = await postgresql.request(`SELECT * FROM tiles WHERE name LIKE '%${body.query}%' LIMIT ${limit} OFFSET ${offset}`)
+    const catalog = await postgresql.request(`SELECT * FROM tiles WHERE name LIKE '%${body.query}%' LIMIT $1 OFFSET $2`, [limit, offset])
 
     if (catalog.length == 0) {
         return reply.send({
