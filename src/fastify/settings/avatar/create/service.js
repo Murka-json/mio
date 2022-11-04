@@ -7,23 +7,23 @@ const fs = require('fs')
 
 
 module.exports = (req, reply) => {
-    redis.get(`user:${req.headers.token}`).then(async r => {
-        r = JSON.parse(r)
-        const urlImage = path.resolve(`../static/${req.file.filename}`)
+    console.log(req.file)
+    // redis.get(`user:${req.headers.token}`).then(async r => {
+    //     r = JSON.parse(r)
 
-        if(!r) {
-            fs.unlink(urlImage, (err) => console.log(err))
-            return reply.send({
-                code: 405,
-                data: `Ошибка доступа`
-            })
-        }
+    //     if(!r) {
+    //         fs.unlink(urlImage, (err) => console.log(err))
+    //         return reply.send({
+    //             code: 405,
+    //             data: `Ошибка доступа`
+    //         })
+    //     }
 
-        reply.send({
-            code: 200,
-            data: `Аватарка успешно загружена`
-        })
+    //     reply.send({
+    //         code: 200,
+    //         data: `Аватарка успешно загружена`
+    //     })
 
-        postgresql.request(`UPDATE users SET avatar = $1 WHERE id = ${r.id}`, [ `${urlImage}` ])
-    })
+    //     postgresql.request(`UPDATE users SET avatar = $1 WHERE id = ${r.id}`, [ `https://mio-app.su/static/${req.file.filename}` ])
+    // })
 }
