@@ -1,14 +1,16 @@
 // @ts-nocheck
+const postgresql = require('#lib/database/postgresql.js')
+const redis = require('#lib/database/redis.js')
 const { fastify } = require("#lib/webserver.js")
 const multer = require('fastify-multer')
 const fs = require('fs')
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination: (req, file, cb) => {
     cb(null, '../static')
   },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+  filename: (req, file, cb) => {
+    cb(null, file.filename + '.jpg')
   }
 })
 
