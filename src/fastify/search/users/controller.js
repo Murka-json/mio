@@ -4,7 +4,7 @@ const utils = require('#lib/utils.js')
 
 
 module.exports = async() => {
-    fastify.post("/search/users", (req, reply) => {
+    fastify.post("/api/search/users", (req, reply) => {
 
         if(!req.body) return
         if (!req.body.query) {

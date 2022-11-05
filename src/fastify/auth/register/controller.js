@@ -3,7 +3,7 @@ const { fastify } = require("#lib/webserver.js")
 const utils = require('#lib/utils.js')
 
 module.exports = async() => {
-    fastify.post("/register", (req, reply) => {
+    fastify.post("/api/register", (req, reply) => {
         console.log(req.body)
         if(!req.body || !req.body.email || !req.body.password || !req.body.name) {
             return reply.send({

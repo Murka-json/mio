@@ -4,7 +4,7 @@ const utils = require('#lib/utils.js')
 
 
 module.exports = async() => {
-    fastify.post("/edit/name", (req, reply) => {
+    fastify.post("/api/edit/name", (req, reply) => {
         
         if(!req.body || !req.body.token || !req.body.name) {
             return reply.send({

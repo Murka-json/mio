@@ -2,7 +2,7 @@
 const { fastify } = require("#lib/webserver.js")
 
 module.exports = async () => {
-    fastify.post("/avatar/delete", (req, reply) => {
+    fastify.post("/api/avatar/delete", (req, reply) => {
         require('./service')(req.body, reply)
     })
 }

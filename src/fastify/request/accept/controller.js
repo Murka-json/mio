@@ -1,12 +1,11 @@
 // @ts-nocheck
-const { fastify } = require("#lib/webserver.js")
-const utils = require('#lib/utils.js')
+const { fastify } = require("#lib/webserver")
 
 
-module.exports = async() => {
-    fastify.post("/api/recovery/get_code", (req, reply) => {
+module.exports = () => {
+    fastify.post('/api/request/accept', (req, reply) => {
         
-        if(!req.body || !req.body.code) {
+        if(!req.body || !req.body.token || !req.body.user) {
             return reply.send({
                 code: 300,
                 data: `Не указаны все параметры`

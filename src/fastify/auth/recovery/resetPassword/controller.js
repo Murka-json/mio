@@ -4,7 +4,7 @@ const utils = require('#lib/utils.js')
 
 
 module.exports = async() => {
-    fastify.post("/recovery/reset-password", (req, reply) => {
+    fastify.post("/api/recovery/reset-password", (req, reply) => {
         
         if(!req.body || !req.body.code || !req.body.new_password || !req.body.check_password) {
             return reply.send({
