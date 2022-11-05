@@ -6,11 +6,14 @@ const multer = require('fastify-multer')
 const fs = require('fs')
 const utils = require('#lib/utils.js')
 
+let saveImage;
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, '../static')
     },
     filename: (req, file, cb) => {
+        const imageName = utils.generate_token(40)
+        saveImage = imageName
         cb(null, imageName + '.jpg')
     }
 })
@@ -21,8 +24,7 @@ const upload = multer({
 
 module.exports = async () => {
     fastify.post("/api/upload/avatar", { preHandler: upload.single('avatar') }, (req, reply) => {
-        const imageName = utils.generate_token(40)
 
-        require('./service')(req, reply, imageName)
+        require('./service')(req, reply, saveImage)
     })
 }
